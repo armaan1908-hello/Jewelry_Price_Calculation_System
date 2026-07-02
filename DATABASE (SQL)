@@ -1,13 +1,14 @@
 CREATE TABLE Products (
-  product_id INTEGER PRIMARY KEY UNIQUE,
+  product_id INTEGER UNIQUE,
   category VARCHAR NOT NULL,  
   image_link VARCHAR,
   production_date DATE,
+  PRIMARY KEY(product_id)
 )
   
 
 CREATE TABLE Cost_Estimates (
-  estimate_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  estimate_id INTEGER AUTOINCREMENT,
   product_id INTEGER (FOREIGN KEY),
   silver_weight REAL,
   live_silver_price_p/g REAL (FOREIGN KEY)
@@ -20,6 +21,10 @@ CREATE TABLE Cost_Estimates (
   cost_per_pcs REAL,
   date_calculated DATE,
   wholesale_price REAL,
+  PRIMARY KEY(estimate_id)
+  FOREIGN KEY(product_id)
+  FOREIGN KEY(
+  FOREIGN KEY
   REFERENCES Products(product_id)
   REFERENCES Silver_Prices(live_silver_price_p/g)
   REFERENCES Silver_Prices(set_silver_price_p/g)
@@ -46,7 +51,3 @@ CREATE TABLE Estimate_History (
 
 
 
-
-
-
-)
