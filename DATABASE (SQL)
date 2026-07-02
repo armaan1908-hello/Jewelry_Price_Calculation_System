@@ -1,0 +1,52 @@
+CREATE TABLE Products (
+  product_id INTEGER PRIMARY KEY UNIQUE,
+  category VARCHAR NOT NULL,  
+  image_link VARCHAR,
+  production_date DATE,
+)
+  
+
+CREATE TABLE Cost_Estimates (
+  estimate_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id INTEGER (FOREIGN KEY),
+  silver_weight REAL,
+  live_silver_price_p/g REAL (FOREIGN KEY)
+  set_silver_price_p/g REAL (FOREIGN KEY)
+  wastage_percent REAL,
+  labor_cost REAL,
+  stone_cost REAL,
+  quantity INTEGER,
+  wholesale_markup REAL,
+  cost_per_pcs REAL,
+  date_calculated DATE,
+  wholesale_price REAL,
+  REFERENCES Products(product_id)
+  REFERENCES Silver_Prices(live_silver_price_p/g)
+  REFERENCES Silver_Prices(set_silver_price_p/g)
+)
+
+CREATE TABLE Silver_Prices (
+  effective_date DATE PRIMARY KEY,
+  live_silver_price_oz REAL,
+  live_silver_price_p/g REAL,
+  set_silver_price_oz REAL,
+  set_silver_price_p/g REAL,
+  currency VARCHAR,
+  source VARCHAR
+)
+
+CREATE TABLE Estimate_History (
+  history_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  estimate_id INTEGER FOREIGN KEY,
+  silver_price REAL,
+  wholesale_price_per_pcs REAL,
+  REFERENCES Cost_Estimates(estimate_id)
+)
+  
+
+
+
+
+
+
+)
