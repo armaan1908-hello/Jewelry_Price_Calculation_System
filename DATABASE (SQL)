@@ -36,8 +36,8 @@ CREATE TABLE Silver_Prices (
   live_silver_price_p/g REAL,
   set_silver_price_oz REAL,
   set_silver_price_p/g REAL,
-  currency VARCHAR,
-  source VARCHAR
+  currency VARCHAR(20),
+  source VARCHAR(40)
 )
 
 CREATE TABLE Estimate_History (
@@ -47,7 +47,38 @@ CREATE TABLE Estimate_History (
   wholesale_price_per_pcs REAL,
   REFERENCES Cost_Estimates(estimate_id)
 )
-  
+
+CREATE TABLE Stone_Library (
+    stone_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    stone_name VARCHAR(50) NOT NULL UNIQUE,
+    cost_per_piece REAL NOT NULL,
+    supplier_id INTEGER FOREIGN KEY,
+    colour VARCHAR(50),
+    specs VARCHAR (300),
+);
+
+CREATE TABLE Suppliers (
+    supplier_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    supplier_name VARCHAR(50) NOT NULL,
+    supp_company_name VARCHAR(50),
+    supp_contact_person VARCHAR(50),
+    supp_phone_number VARCHAR(25),
+    supp_email VARCHAR(70),
+    supp_address VARCHAR(350),
+    supp_country VARCHAR(50),
+    supp_type VARCHAR (100),
+);
+
+CREATE TABLE Customers (
+    customer_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_name VARCHAR(50) NOT NULL,
+    customer_company_name VARCHAR(50),
+    customer_phone_number VARCHAR(25),
+    customer_email VARCHAR(70),
+    customer_address VARCHAR(350),
+    customer_country VARCHAR(50),
+    customer_specs VARCHAR (350),
+);
 
 
 
