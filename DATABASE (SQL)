@@ -11,6 +11,7 @@ CREATE TABLE Cost_Estimates (
   estimate_id INTEGER AUTOINCREMENT,
   product_id INTEGER (FOREIGN KEY),
   silver_weight REAL,
+  troy_oz_to_grams = 31.5
   live_silver_price_p/g REAL (FOREIGN KEY)
   set_silver_price_p/g REAL (FOREIGN KEY)
   wastage_percent REAL,
