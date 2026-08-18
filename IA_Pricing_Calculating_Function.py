@@ -9,17 +9,6 @@ def calculate_cost(silver_weight_g, silver_price_oz, wastage_percent, labor_cost
     elif quantity <= 0:
         raise ValueError("Item quantity must be greater than 0.")
     
-def calculate_cost(silver_weight_g, silver_price_oz, wastage_percent, labor_cost, stone_cost, quantity, wholesale_markup):
-    silver_price_g = silver_price_oz/30
-    raw_silver_price_g = silver_price_g * silver_weight_g
-    
-    if silver_weight <= 0:
-        raise ValueError("Silver weight must be greater than 0.")
-    elif silver_price_oz <= 0:
-        raise ValueError('Silver price must be realistic "greater than 0".')
-    elif quantity <= 0:
-        raise ValueError("Item quantity must be greater than 0.")
-    
  
  # Data (values) for semi and auto:   
 
@@ -58,7 +47,6 @@ def calculate_cost(silver_weight_g, silver_price_oz, wastage_percent, labor_cost
         rs_L_plating_labor = 
         L_e_coating_labor =
         L_mark_up = 9
-    
     
     
   
