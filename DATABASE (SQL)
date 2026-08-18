@@ -1,7 +1,8 @@
 CREATE TABLE Products (
   product_id INTEGER UNIQUE,
-  category VARCHAR NOT NULL,  
-  image_link VARCHAR,
+  category VARCHAR(15) NOT NULL,
+  size VARCHAR(6) NOT NULL
+  image_link VARCHAR(500),
   production_date DATE,
   PRIMARY KEY(product_id)
 )
@@ -12,8 +13,8 @@ CREATE TABLE Cost_Estimates (
   product_id INTEGER (FOREIGN KEY),
   silver_weight REAL,
   troy_oz_to_grams = 31.5
-  live_silver_price_p/g REAL (FOREIGN KEY)
-  set_silver_price_p/g REAL (FOREIGN KEY)
+  live_silver_price_p/g REAL 
+  set_silver_price_p/g REAL 
   wastage_percent REAL,
   labor_cost REAL,
   stone_cost REAL,
@@ -24,8 +25,6 @@ CREATE TABLE Cost_Estimates (
   wholesale_price REAL,
   PRIMARY KEY(estimate_id)
   FOREIGN KEY(product_id)
-  FOREIGN KEY(
-  FOREIGN KEY
   REFERENCES Products(product_id)
   REFERENCES Silver_Prices(live_silver_price_p/g)
   REFERENCES Silver_Prices(set_silver_price_p/g)
@@ -80,6 +79,3 @@ CREATE TABLE Customers (
     customer_country VARCHAR(50),
     customer_specs VARCHAR (350),
 );
-
-
-
