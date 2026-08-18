@@ -12,6 +12,8 @@ if input_choice == "manual":
     product_size = product_size.lower().strip()
     plating_color = input('Enter plating (Silver-"S", Rhodium-"RH", Gold-"G", RoseGold-"RG": ') 
     plating_color = plating_color.lower().strip()
+    mark_up = input(int('Enter the mark-up percentage(%) eg."15": '))
+    mark_up = (mark_up)/100
     if craft_type == "handmade":
         making_labor = float(input("Enter hand-made labor: "))
     elif craft_type == "casted":
@@ -20,17 +22,17 @@ if input_choice == "manual":
         polishing_labor = float(input("Enter polishing labor: "))
     if plating_color == "s":
         plating_labor = 
-    elif plating_color = "rh":
+    elif plating_color == "rh":
         plating_labor =
-    elif plating_color = "g":
+    elif plating_color == "g":
         plating_labor =
-    elif plating_color = "rs":
+    elif plating_color == "rs":
         plating_labor =
     e_coating = input('E-Coating, "YES or "NO" ?: ')
     e_coating = e_coating.lower().strip()
-    if e_coating = "yes":
+    if e_coating == "yes":
         e_coating_labor = float(input("Enter coating labor: "))
-    elif e_coating = "yes":
+    elif e_coating == "yes":
         e_coating_labor = 0
     
 
@@ -101,12 +103,27 @@ if input_choice == "manual":
         e_coating_labor = L_e_coating_labor
     elif e_coating = "no"
         e_coating_labor = 0
-        
+    if product_size == "s":
+        mark_up = S_mark_up
+    elif product_size == "m":
+        mark_up = M_mark_up
+    elif product_size == "l":
+        mark_up = L_mark_up
+    
 elif input_choice == "auto"
     product_ID = input("Enter Product ID: "))
     product_ID = product_ID.strip()
     product_image = 
     
     (AUTOFILL)
- 
- X
+
+
+Silver_Cost = (silver_weight_g)*(silver_price_g)
+T_Labor_Cost = (making_labor+sanding_labor+polishing_labor+plating_labor+e_coating_labor)
+T_Cost = Silver_Cost+T_Labor_Cost
+
+Wholesale_price = (T_Cost)*(1+mark_up)
+Raw_Quotation = (Wholesale_price)*(Qty)
+Final_Quotation = ((Raw_Quotation)*(1+(Tax/100)))+(shipping_fees)
+
+X
