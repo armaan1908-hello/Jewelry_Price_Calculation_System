@@ -1,3 +1,12 @@
+import requests
+import json
+import base64
+import io
+
+from PIL import Image, ImageOps
+from Imports import CLAUDE_MODEL
+
+
 def analyse_image(filename, api_key):
     if filename == "":
         raise ValueError("Choose a photo first.")
