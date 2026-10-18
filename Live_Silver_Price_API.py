@@ -1,3 +1,7 @@
+import requests
+from Cost_Calculation import number
+
+
 def live_silver_price(api_key):
     if not api_key.strip():
         raise ValueError("Enter your GoldAPI key.")
