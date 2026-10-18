@@ -1,5 +1,6 @@
 def get_labor_costs(silver_weight_g, craft_type, plating_color, e_coating):
 
+    
     if silver_weight_g <= 4:
         handmade_labor = 12
         making_labor = 10
